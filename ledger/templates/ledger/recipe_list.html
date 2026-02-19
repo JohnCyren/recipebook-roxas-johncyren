@@ -1,21 +1,22 @@
 <html>
-<head>
-    <title>{{ name }}</title>
-</head>
-<body>
-    <h1>Recipe Book</h1>
-    <h2>Recipes:</h2>
+    <head>
+        <title>Recipe Book</title>
+    </head>
+        <body>
+
+        <h1>Recipe Book</h1>
+
+        <h2>Recipes:</h2>
+
         <ul>
             {% for recipe in recipes %}
-                <h3>{{recipe.name}}</h3>
-                <ul>
-                {% for ingredient in recipe.ingredients %}
-                    <li>{{ ingredient.name }}: {{ ingredient.quantity }}</li>
-                {% endfor %}
-                </ul>
-                <p>Recipe Link: {{ recipe.link }}</p>
+                <li>
+                    <a href="{{ recipe.get_absolute_url }}">
+                        {{ recipe.name }}
+                    </a>
+                </li>
             {% endfor %}
-
         </ul>
-    </body>
+
+        </body>
 </html>

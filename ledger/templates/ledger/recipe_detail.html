@@ -1,0 +1,16 @@
+<html>
+    <head>
+        <title>{{ recipe.name }}</title>
+    </head>
+    <body>
+        <h2>Ingredients:</h2>
+
+        <ul>
+        {% for ingred in recipe.recipe_ingredients.all %}
+            <li>
+                {{ ingred.ingredient.name }} : {{ ingred.quantity }}
+            </li>
+        {% endfor %}
+        </ul>
+    </body>
+</html>
