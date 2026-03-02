@@ -1,16 +1,20 @@
-<html>
-    <head>
-        <title>{{ recipe.name }}</title>
-    </head>
-    <body>
-        <h2>Ingredients:</h2>
+{% extends "base.html" %}
 
-        <ul>
-        {% for ingred in recipe.recipe_ingredients.all %}
-            <li>
-                {{ ingred.ingredient.name }} : {{ ingred.quantity }}
-            </li>
-        {% endfor %}
-        </ul>
-    </body>
-</html>
+{% block page_title %}
+    {{ recipe.name }}
+{% endblock %}
+
+{% block content %}
+
+<p><strong>Author:</strong> {{ recipe.author.name }}</p>
+
+<h3>Ingredients:</h3>
+<ul>
+    {% for ingred in recipe.recipe_ingredients.all %}
+        <li>
+            {{ ingred.ingredient.name }} : {{ ingred.quantity }}
+        </li>
+    {% endfor %}
+</ul>
+
+{% endblock %}
