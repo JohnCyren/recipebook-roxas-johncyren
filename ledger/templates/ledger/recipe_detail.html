@@ -16,5 +16,19 @@
         </li>
     {% endfor %}
 </ul>
+{% if user.is_authenticated %}
+        <p><a href="{% url 'add_image' recipe.pk %}">Add Image</a></p>
+    {% endif %}
+
+    <h3>Images</h3>
+    {% for image in recipe.images.all %}
+        <div>
+            <img src="{{ image.image.url }}" alt="{{ image.description }}" width="200">
+        </div>
+    {% empty %}
+        <p>No images uploaded yet.</p>
+    {% endfor %}
+
+    <p><a href="{% url 'recipe_list' %}">Back to Recipe List</a></p>
 
 {% endblock %}

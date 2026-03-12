@@ -6,6 +6,12 @@
 
 {% block content %}
 
+{% if user.is_authenticated %}
+    <p>
+        <a href="{% url 'recipe_add' %}">Add Recipe</a>
+    </p>
+{% endif %}
+
 <ul>
     {% for recipe in recipes %}
         <li>
